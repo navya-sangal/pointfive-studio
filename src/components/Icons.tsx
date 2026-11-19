@@ -49,6 +49,7 @@ export function Icon({
   name,
   size = 20,
   strokeWidth = 1.75,
+  className = "",
   ...props
 }: { name: IconName; size?: number; strokeWidth?: number } & SVGProps<SVGSVGElement>) {
   return (
@@ -64,6 +65,8 @@ export function Icon({
       strokeLinejoin="round"
       aria-hidden="true"
       focusable="false"
+      // Icons keep their size inside tight buttons instead of being squeezed.
+      className={`shrink-0 ${className}`}
       {...props}
     >
       {paths[name].map((d) => (

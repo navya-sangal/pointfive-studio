@@ -46,8 +46,9 @@ export function Contact() {
           )}
           <a href={site.instagram.url} {...newTabProps(true)} className={outlineButton}>
             <Icon name="instagram" size={22} />
-            {contact.instagramLabel}
-            <span className="font-normal opacity-75">{site.instagram.handle}</span>
+            {/* On phones the icon stands in for the word, so the handle fits on one line. */}
+            <span className="max-sm:sr-only">{contact.instagramLabel}</span>
+            <span className="sm:font-normal sm:opacity-75">{site.instagram.handle}</span>
             <span className="sr-only">{site.labels.newTab}</span>
           </a>
         </div>

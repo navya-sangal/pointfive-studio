@@ -14,8 +14,8 @@ export const site = {
   email: "hellopointfivestudio@gmail.com",
 
   instagram: {
-    handle: "@pointfivestudio",
-    url: "https://www.instagram.com/pointfivestudio/",
+    handle: "@pointfivestudio.in",
+    url: "https://www.instagram.com/pointfivestudio.in/",
   },
 
   // Typed in for people when they tap a contact button (email now, or WhatsApp once it's on).
@@ -306,7 +306,7 @@ export const site = {
       },
       {
         q: "Do you only work in Gurgaon and Mumbai?",
-        a: "We focus on Gurgaon and Mumbai, but we work with businesses anywhere in India over WhatsApp and video calls.",
+        a: "We focus on Gurgaon and Mumbai, but we work with businesses anywhere in India over email and video calls.",
       },
     ],
   },

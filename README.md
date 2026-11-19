@@ -33,6 +33,7 @@ npx serve out      # http://localhost:3000
 | **Every word on the site** (headlines, services, prices, FAQ, contact, SEO title/description) | `src/content/site.ts` |
 | **WhatsApp buttons (switched off for now)** | `site.whatsapp` in `src/content/site.ts`. While `enabled` is `false`, every contact button says “Email us” and opens an email. To switch WhatsApp on, set `number` (country code + number, digits only, e.g. `919812345678`) and change `enabled` to `true` |
 | Instagram link | `site.instagram` |
+| Instagram profile picture (1080×1080) | `brand/instagram-profile-1080.png`, made from `src/app/icon.svg`. Not part of the website |
 | Pre-filled email/WhatsApp message | `site.enquiry` |
 | Package prices | `site.packages.items[].price`: plain rupees, no commas (`34999` shows as "from ₹34,999") |
 | Lighthouse scores in the Work section | `site.work.scores` |
