@@ -125,7 +125,7 @@
   }
 }
 
-/* ───────────── Hero lens: the illustrated scene behind the zoom buttons ─────────────
+/* ───────────── Hero lens: the illustrated scene above the zoom buttons ─────────────
    Everything inside is sized in cqw (1% of the frame's width), so the whole scene scales
    with the frame and the zoom levels line up on every screen size. */
 .lens {
@@ -133,7 +133,7 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 5;
-  border-radius: 28px;
+  border-radius: 24px;
   background: #e8dfd0;
   isolation: isolate;
 }

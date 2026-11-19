@@ -115,8 +115,10 @@ Also turn on **SSL/TLS → Edge Certificates → Always Use HTTPS** if it isn't 
 
 - [ ] `https://pointfivestudio.in` loads the site with a padlock.
 - [ ] `http://pointfivestudio.in` and `https://www.pointfivestudio.in` both end up at `https://pointfivestudio.in`.
-- [ ] The **WhatsApp** buttons open a chat with *your* number. It's still a placeholder: set
-      `site.whatsapp.number` in `src/content/site.ts`, then commit and push.
+- [ ] The **Email us** buttons open an email to hellopointfivestudio@gmail.com, and the Instagram link
+      opens @pointfivestudio.
+- [ ] *Later, when you have a WhatsApp Business number:* in `src/content/site.ts` set `whatsapp.number`
+      and change `whatsapp.enabled` to `true`, then commit and push. The buttons switch to WhatsApp.
 - [ ] Sharing the link on WhatsApp shows the preview image. WhatsApp caches previews, so if it shows an
       old one, test with `https://pointfivestudio.in/?v=1`.
 

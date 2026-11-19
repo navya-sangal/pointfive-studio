@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { site } from "@/content/site";
-import { whatsappLink } from "@/lib/links";
+import { contactLink, newTabProps } from "@/lib/links";
 import { Icon } from "./Icons";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const contact = contactLink();
 
   useEffect(() => {
     if (!open) return;
@@ -16,7 +17,7 @@ export function MobileMenu() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         aria-expanded={open}
@@ -50,14 +51,13 @@ export function MobileMenu() {
           </ul>
         </nav>
         <a
-          href={whatsappLink()}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={contact.href}
+          {...newTabProps(contact.newTab)}
           onClick={() => setOpen(false)}
           className="mt-4 flex items-center justify-center gap-2 rounded-full bg-ink px-5 py-4 font-semibold text-paper"
         >
-          <Icon name="whatsapp" size={20} className="text-marigold" />
-          {site.navCta}
+          <Icon name={contact.icon} size={20} className="text-marigold" />
+          {contact.label.short}
         </a>
       </div>
     </div>

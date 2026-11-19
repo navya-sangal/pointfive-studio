@@ -81,6 +81,7 @@ const jsonLd = {
       name: site.name,
       url: site.url,
       email: site.email,
+      sameAs: [site.instagram.url],
       slogan: site.tagline,
       description: site.seo.description,
       logo: `${site.url}/icon.svg`,

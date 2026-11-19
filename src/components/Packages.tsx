@@ -1,5 +1,5 @@
 import { site } from "@/content/site";
-import { rupees, whatsappLink } from "@/lib/links";
+import { contactLink, fill, newTabProps, rupees } from "@/lib/links";
 import { Icon } from "./Icons";
 import { SectionHeading } from "./SectionHeading";
 
@@ -14,6 +14,8 @@ export function Packages() {
           {packages.items.map((pkg) => {
             const dark = pkg.featured;
             const price = rupees(pkg.price);
+            const values = { name: pkg.name, price };
+            const contact = contactLink(fill(site.enquiry.packageSubject, values), fill(site.enquiry.packageMessage, values));
             return (
               <li
                 key={pkg.name}
@@ -58,11 +60,8 @@ export function Packages() {
                 </ul>
 
                 <a
-                  href={whatsappLink(
-                    `Hi Point Five Studio! I'm interested in the ${pkg.name} package (from ${price}). Can we talk about my business?`,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={contact.href}
+                  {...newTabProps(contact.newTab)}
                   className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold transition-colors ${
                     dark
                       ? "bg-marigold text-ink hover:bg-[#f5b93f]"

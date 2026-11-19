@@ -1,9 +1,13 @@
 import { site } from "@/content/site";
-import { emailLink, whatsappLink } from "@/lib/links";
+import { contactLink, emailLink, newTabProps } from "@/lib/links";
 import { Icon } from "./Icons";
+
+const outlineButton =
+  "inline-flex items-center justify-center gap-2.5 rounded-full border border-white/40 px-7 py-4 text-lg font-semibold transition-colors hover:border-paper hover:bg-paper hover:text-ink";
 
 export function Contact() {
   const { contact } = site;
+  const main = contactLink();
   return (
     <section id="contact" aria-labelledby="contact-title" className="on-dark relative overflow-hidden bg-night text-paper">
       {/* A giant zoom button, cropped by the edge of the section */}
@@ -27,25 +31,29 @@ export function Contact() {
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={main.href}
+            {...newTabProps(main.newTab)}
             className="inline-flex items-center justify-center gap-2.5 rounded-full bg-marigold px-7 py-4 text-lg font-semibold text-ink transition-colors hover:bg-[#f5b93f]"
           >
-            <Icon name="whatsapp" size={22} />
-            {contact.whatsappLabel}
+            <Icon name={main.icon} size={22} />
+            {main.label.long}
           </a>
-          <a
-            href={emailLink}
-            className="inline-flex items-center justify-center gap-2.5 rounded-full border border-white/40 px-7 py-4 text-lg font-semibold transition-colors hover:border-paper hover:bg-paper hover:text-ink"
-          >
-            <Icon name="mail" size={22} />
-            {contact.emailLabel}
+          {site.whatsapp.enabled && (
+            <a href={emailLink(site.enquiry.subject, site.enquiry.message)} className={outlineButton}>
+              <Icon name="mail" size={22} />
+              {contact.emailLabel}
+            </a>
+          )}
+          <a href={site.instagram.url} {...newTabProps(true)} className={outlineButton}>
+            <Icon name="instagram" size={22} />
+            {contact.instagramLabel}
+            <span className="font-normal opacity-75">{site.instagram.handle}</span>
+            <span className="sr-only">{site.labels.newTab}</span>
           </a>
         </div>
         <p className="mt-6 text-[15px] text-mist">
           {contact.note}{" "}
-          <a href={emailLink} className="break-all text-paper underline decoration-marigold underline-offset-4">
+          <a href={emailLink()} className="break-all text-paper underline decoration-marigold underline-offset-4">
             {site.email}
           </a>
         </p>

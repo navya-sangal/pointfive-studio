@@ -1,11 +1,12 @@
 import { site } from "@/content/site";
-import { whatsappLink } from "@/lib/links";
+import { contactLink, newTabProps } from "@/lib/links";
 import { Icon } from "./Icons";
 import { LensScene } from "./LensScene";
 import { LensSwitch } from "./LensSwitch";
 
 export function Hero() {
   const { hero, lens } = site;
+  const contact = contactLink();
   return (
     <section id="top" className="relative overflow-hidden">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-10 pb-16 sm:px-8 sm:pt-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:pt-20 lg:pb-28">
@@ -21,13 +22,12 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={contact.href}
+              {...newTabProps(contact.newTab)}
               className="inline-flex items-center justify-center gap-2.5 rounded-full bg-ink px-6 py-4 font-semibold text-paper transition-colors hover:bg-black"
             >
-              <Icon name="whatsapp" size={20} className="text-marigold" />
-              {hero.primaryCta}
+              <Icon name={contact.icon} size={20} className="text-marigold" />
+              {contact.label.long}
             </a>
             <a
               href="#pricing"

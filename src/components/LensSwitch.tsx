@@ -52,19 +52,23 @@ export function LensSwitch({
 
   return (
     <figure className="relative">
-      <div ref={frame} className="lens shadow-[0_30px_60px_-30px_rgb(30_30_30/0.45)]">
-        <div className="lens-scene" data-zoom={zoom} aria-hidden="true">
-          {children}
-        </div>
+      {/* The phone camera: the picture on top, the zoom pills in the dark strip below it,
+          so the pills never cover the scene at any zoom level or screen size. */}
+      <div className="on-dark rounded-[32px] bg-night p-2 shadow-[0_30px_60px_-30px_rgb(30_30_30/0.45)]">
+        <div ref={frame} className="lens">
+          <div className="lens-scene" data-zoom={zoom} aria-hidden="true">
+            {children}
+          </div>
 
-        {/* Viewfinder corners */}
-        <span className="viewfinder absolute inset-[5%] z-10 text-white/80 [--vf-len:22px]" aria-hidden="true" />
+          {/* Viewfinder corners */}
+          <span className="viewfinder absolute inset-[5%] z-10 text-white/80 [--vf-len:22px]" aria-hidden="true" />
+        </div>
 
         {/* Zoom pills, like the camera app */}
         <div
           role="group"
           aria-label={label}
-          className="absolute bottom-[5%] left-1/2 z-20 flex -translate-x-1/2 items-center gap-0.5 rounded-full bg-[rgb(20_20_20/0.62)] p-1 backdrop-blur-sm"
+          className="mx-auto my-2 flex w-fit items-center gap-0.5 rounded-full bg-white/[0.07] p-1"
         >
           {levels.map((level) => {
             const on = level.id === zoom;
@@ -83,8 +87,8 @@ export function LensSwitch({
                 <span
                   className={`grid place-items-center rounded-full font-semibold tabular-nums transition-all duration-300 ${
                     on
-                      ? "size-10 bg-[rgb(10_10_10/0.75)] text-[13px] text-marigold"
-                      : "size-8 bg-[rgb(60_60_60/0.55)] text-[12px] text-white group-hover:bg-[rgb(80_80_80/0.7)]"
+                      ? "size-10 bg-black/60 text-[13px] text-marigold"
+                      : "size-8 bg-white/10 text-[12px] text-white group-hover:bg-white/20"
                   }`}
                 >
                   {on ? level.active : level.pill}

@@ -31,7 +31,9 @@ npx serve out      # http://localhost:3000
 | What | Where |
 | --- | --- |
 | **Every word on the site** (headlines, services, prices, FAQ, contact, SEO title/description) | `src/content/site.ts` |
-| WhatsApp number (still a placeholder) | `site.whatsapp.number` in `src/content/site.ts`: country code + number, digits only, e.g. `919812345678` |
+| **WhatsApp buttons (switched off for now)** | `site.whatsapp` in `src/content/site.ts`. While `enabled` is `false`, every contact button says “Email us” and opens an email. To switch WhatsApp on, set `number` (country code + number, digits only, e.g. `919812345678`) and change `enabled` to `true` |
+| Instagram link | `site.instagram` |
+| Pre-filled email/WhatsApp message | `site.enquiry` |
 | Package prices | `site.packages.items[].price`: plain rupees, no commas (`34999` shows as "from ₹34,999") |
 | Lighthouse scores in the Work section | `site.work.scores` |
 | Colours | the `@theme` block at the top of `src/app/globals.css` |
@@ -47,7 +49,7 @@ After editing, commit and push to `main`. Cloudflare rebuilds and publishes the 
 ```
 src/
   content/site.ts      ALL the text
-  lib/links.ts         WhatsApp/email links and ₹ formatting
+  lib/links.ts         email/WhatsApp links (picks one from the flag) and ₹ formatting
   app/
     layout.tsx         fonts, SEO metadata and structured data for Google
     page.tsx           puts the sections in order
@@ -55,7 +57,7 @@ src/
     sitemap.ts, robots.ts, icon.svg, apple-icon.png, opengraph-image.png
   components/
     Header, MobileMenu, Hero, LensSwitch, LensScene, Services, Process,
-    Packages, Work, Faq, Contact, Footer, WhatsAppFab, Logo, Icons, SectionHeading
+    Packages, Work, Faq, Contact, Footer, ContactFab, Logo, Icons, SectionHeading
   fonts/bricolage-rupee.woff2   just the ₹ sign (see below)
 public/
   _headers             Cloudflare Pages headers
@@ -65,7 +67,8 @@ public/
 ## Notes
 
 - **Hero lens.** The zoom pills (`.5`, `1`, `2`) work like a phone camera. The page opens at 1× on a single
-  Instagram post, then pulls back to 0.5× to show the whole set-up once the lens is on screen. It's drawn
+  Instagram post, then pulls back to 0.5× to show the whole set-up once the lens is on screen. The pills
+  sit in the dark strip under the picture, so they never cover the scene. It's drawn
   in HTML and CSS (no images), sized in `cqw` so it scales with its frame. Visitors who prefer reduced
   motion see the wide view straight away. The illustration's text is in `site.lens.scene`.
 - **Fonts.** Instrument Serif (headlines) and Bricolage Grotesque (everything else), self-hosted via
@@ -75,7 +78,7 @@ public/
   `<details>`. The scroll-in animations are CSS only and are skipped for visitors who prefer reduced
   motion.
 - **Static export.** `next.config.ts` sets `output: "export"`, so there's no server. The site has no
-  contact form. Enquiries go to WhatsApp and email.
+  contact form. Enquiries go to email (and WhatsApp, once it's switched on in `site.ts`).
 
 ## Credits
 

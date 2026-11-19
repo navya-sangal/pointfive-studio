@@ -13,11 +13,33 @@ export const site = {
   tagline: "A fresh way to see your business online.",
   email: "hellopointfivestudio@gmail.com",
 
-  whatsapp: {
-    // TODO: replace with the real number. Country code + number, digits only (e.g. 919812345678).
-    number: "910000000000",
-    // Pre-filled message when someone taps a general WhatsApp button.
+  instagram: {
+    handle: "@pointfivestudio",
+    url: "https://www.instagram.com/pointfivestudio/",
+  },
+
+  // Typed in for people when they tap a contact button (email now, or WhatsApp once it's on).
+  // {name} and {price} are filled in by each package's "Ask about" button.
+  enquiry: {
+    subject: "Website enquiry",
     message: "Hi Point Five Studio! I'd like to know more about a website for my business.",
+    packageSubject: "{name} package enquiry",
+    packageMessage: "Hi Point Five Studio! I'm interested in the {name} package (from {price}). Can we talk about my business?",
+  },
+
+  whatsapp: {
+    // WhatsApp buttons are switched OFF: every contact button opens an email instead.
+    // To switch them on: put your WhatsApp Business number below (country code + number,
+    // digits only, e.g. 919812345678), change `enabled` to true, then commit and push.
+    enabled: false,
+    number: "910000000000",
+  },
+
+  // Labels for the main contact button in the header, hero, contact section and the
+  // floating button on phones. Which set is used depends on `whatsapp.enabled` above.
+  contactCta: {
+    email: { short: "Email us", long: "Email us", floating: "Email us" },
+    whatsapp: { short: "WhatsApp us", long: "Chat on WhatsApp", floating: "Chat with us on WhatsApp" },
   },
 
   cities: ["Gurgaon", "Mumbai"],
@@ -40,7 +62,6 @@ export const site = {
     { label: "Work", href: "#work" },
     { label: "FAQ", href: "#faq" },
   ],
-  navCta: "WhatsApp us",
 
   hero: {
     eyebrow: "Websites and booking systems for small businesses in Gurgaon and Mumbai",
@@ -49,7 +70,6 @@ export const site = {
     titleHighlight: "online.",
     intro:
       "We help cafés, salons, clinics and local businesses get more bookings and spend less time on admin, with fast websites, booking systems, WhatsApp and AI chat, and a simple dashboard for the owner.",
-    primaryCta: "Chat on WhatsApp",
     secondaryCta: "See packages",
     note: "Free 20-minute call. Reply within one working day.",
   },
@@ -159,7 +179,7 @@ export const site = {
       },
       {
         name: "Build",
-        time: "1–5 weeks",
+        time: "2–4 weeks",
         text: "We design and build your site and tools, then test everything on real phones. You see progress every week and can change your mind along the way.",
       },
       {
@@ -183,7 +203,7 @@ export const site = {
         name: "Starter",
         price: 14999,
         bestFor: "For a café, salon or clinic that needs to look great online, fast.",
-        time: "Live in about 1 week",
+        time: "Live in 2–4 weeks",
         features: [
           "One-page mobile website",
           "Menu or services with prices",
@@ -197,7 +217,7 @@ export const site = {
         name: "Growth",
         price: 34999,
         bestFor: "For businesses that want bookings coming in without the back-and-forth.",
-        time: "Live in 2–3 weeks",
+        time: "Live in 2–4 weeks",
         features: [
           "Everything in Starter",
           "Up to 5 pages",
@@ -211,13 +231,13 @@ export const site = {
         name: "Pro",
         price: 64999,
         bestFor: "For owners who want the admin to run itself.",
-        time: "Live in 3–5 weeks",
+        time: "Live in 2–4 weeks",
         features: [
           "Everything in Growth",
           "AI chatbot on your site and WhatsApp",
           "Bookings straight from WhatsApp",
           "Owner dashboard",
-          "Priority support for 3 months",
+          "Priority support for 1 month",
         ],
         featured: false,
       },
@@ -258,7 +278,7 @@ export const site = {
     items: [
       {
         q: "How long does it take?",
-        a: "A Starter site is usually live in about a week. Growth takes 2–3 weeks and Pro 3–5 weeks. The clock starts once we have your photos, menu or service list.",
+        a: "Most projects are live in 2–4 weeks, depending on the package and how much needs connecting. The clock starts once we have your photos, menu or service list.",
       },
       {
         q: "What does “from ₹X” mean? How do I get an exact price?",
@@ -295,8 +315,9 @@ export const site = {
     kicker: "Contact",
     title: "Let's zoom out on your business.",
     text: "Tell us what you run and what eats up your time. We'll reply within one working day with ideas and a fixed quote.",
-    whatsappLabel: "Chat on WhatsApp",
+    // Shown next to the main button when WhatsApp is switched on.
     emailLabel: "Email us",
+    instagramLabel: "Instagram",
     note: "Free 20-minute call. No obligation.",
   },
 
@@ -312,7 +333,6 @@ export const site = {
     home: "Point Five Studio, back to top",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    whatsappFab: "Chat with us on WhatsApp",
     newTab: "(opens in a new tab)",
     scoreOutOf: "out of 100 for",
   },

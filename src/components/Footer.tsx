@@ -1,5 +1,6 @@
 import { site } from "@/content/site";
-import { emailLink } from "@/lib/links";
+import { emailLink, newTabProps } from "@/lib/links";
+import { Icon } from "./Icons";
 import { Logo } from "./Logo";
 
 export function Footer() {
@@ -23,8 +24,21 @@ export function Footer() {
                 </li>
               ))}
               <li className="col-span-2 mt-2">
-                <a href={emailLink} className="break-all text-paper hover:text-marigold">
+                <a href={emailLink()} className="break-all text-paper hover:text-marigold">
                   {site.email}
+                </a>
+              </li>
+              <li className="col-span-2">
+                <a
+                  href={site.instagram.url}
+                  {...newTabProps(true)}
+                  className="inline-flex items-center gap-2 text-paper hover:text-marigold"
+                >
+                  <Icon name="instagram" size={18} />
+                  {site.instagram.handle}
+                  <span className="sr-only">
+                    {site.contact.instagramLabel} {site.labels.newTab}
+                  </span>
                 </a>
               </li>
             </ul>
