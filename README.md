@@ -34,11 +34,12 @@ npx serve out      # http://localhost:3000
 | **WhatsApp buttons (switched off for now)** | `site.whatsapp` in `src/content/site.ts`. While `enabled` is `false`, every contact button says “Email us” and opens an email. To switch WhatsApp on, set `number` (country code + number, digits only, e.g. `919812345678`) and change `enabled` to `true` |
 | Instagram link | `site.instagram` |
 | Instagram profile picture (1080×1080) | `brand/instagram-profile-1080.png`, made from `src/app/icon.svg`. Not part of the website |
+| Saanjh Salon images for Upwork (1600×1200) and Instagram (1080×1350) | `brand/saanjh/`. Not part of the website |
 | Pre-filled email/WhatsApp message | `site.enquiry` |
 | Package prices | `site.packages.items[].price`: plain rupees, no commas (`34999` shows as "from ₹34,999") |
-| Lighthouse scores in the Work section | `site.work.scores` |
+| Case studies in the Work section (text, scores, live links) | `site.work.projects`, one entry per project |
 | Colours | the `@theme` block at the top of `src/app/globals.css` |
-| Kaapi & Co. screenshots | `public/work/` (WebP, two sizes each; keep the same file names) |
+| Case-study screenshots | `public/work/`: `<image>-desktop-1280.webp`, `-desktop-640`, `-mobile-480` and `-mobile-240`, where `<image>` is the project's `image` in `site.ts` |
 | Share image for WhatsApp/LinkedIn/X previews | `src/app/opengraph-image.png` (1200×630) and its `.alt.txt` |
 | Browser tab icon / iPhone home-screen icon | `src/app/icon.svg`, `src/app/apple-icon.png` |
 | Security and caching headers on Cloudflare | `public/_headers` |

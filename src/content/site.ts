@@ -249,27 +249,60 @@ export const site = {
   work: {
     kicker: "Work",
     heading: "Recent work",
-    title: "Kaapi & Co.",
-    subtitle: "A filter-coffee café in Bandra West, Mumbai",
-    tag: "Concept build",
-    summary:
-      "A one-page site designed to turn Instagram browsers into table bookings. Built to show what a small café can have: a tabbed menu, a photo gallery, a reservation form, opening hours with a map, and a WhatsApp button that's always one tap away.",
-    highlights: ["Reservation form that's quick on a phone", "Tabbed menu and photo gallery", "Floating WhatsApp button", "Map, hours and contact in one place"],
-    scoresTitle: "Google Lighthouse scores",
-    scoresNote: "Measured on the production build. 100 is the maximum.",
-    scores: [
-      { label: "Performance", sub: "on mobile", value: 96 },
-      { label: "Accessibility", sub: "", value: 100 },
-      { label: "Best practices", sub: "", value: 100 },
-      { label: "SEO", sub: "", value: 100 },
-    ],
-    liveUrl: "https://kaapi-cafe.vercel.app",
     liveLabel: "Visit the live site",
-    images: {
-      desktopAlt:
-        "The Kaapi & Co. website on a laptop: the headline “Good coffee takes its time.”, a Reserve a table button and an illustrated coffee cup.",
-      mobileAlt: "The Kaapi & Co. website on a phone, with the Reserve a table button and a floating WhatsApp button.",
-    },
+    // One entry per case study, shown side by side on wide screens. Screenshots live in public/work/ as
+    // <image>-desktop-1280.webp, <image>-desktop-640.webp, <image>-mobile-480.webp and <image>-mobile-240.webp.
+    projects: [
+      {
+        title: "Kaapi & Co.",
+        subtitle: "A filter-coffee café in Bandra West, Mumbai",
+        tag: "Concept build",
+        summary:
+          "A one-page site designed to turn Instagram browsers into table bookings. Built to show what a small café can have: a tabbed menu, a photo gallery, a reservation form, opening hours with a map, and a WhatsApp button that's always one tap away.",
+        highlights: ["Reservation form that's quick on a phone", "Tabbed menu and photo gallery", "Floating WhatsApp button", "Map, hours and contact in one place"],
+        scoresTitle: "Google Lighthouse scores",
+        scoresNote: "Measured on the production build. 100 is the maximum.",
+        scores: [
+          { label: "Performance", sub: "on mobile", value: 96 },
+          { label: "Accessibility", sub: "", value: 100 },
+          { label: "Best practices", sub: "", value: 100 },
+          { label: "SEO", sub: "", value: 100 },
+        ],
+        liveUrl: "https://kaapi-cafe.vercel.app",
+        note: "",
+        image: "kaapi",
+        desktopAlt:
+          "The Kaapi & Co. website on a laptop: the headline “Good coffee takes its time.”, a Reserve a table button and an illustrated coffee cup.",
+        mobileAlt: "The Kaapi & Co. website on a phone, with the Reserve a table button and a floating WhatsApp button.",
+      },
+      {
+        title: "Saanjh Salon",
+        subtitle: "A salon website with online booking",
+        tag: "Concept build",
+        summary:
+          "A website for a premium salon on Golf Course Road, Gurugram, where customers book in a few taps. The booking is real: it shows each stylist's live availability, and the owner manages every appointment from a simple dashboard.",
+        highlights: [
+          "Service → stylist → date → time booking",
+          "Double-booking protection",
+          "Owner dashboard with confirm/cancel",
+          "Loads in 0.9 s on mobile",
+        ],
+        scoresTitle: "Google PageSpeed scores",
+        scoresNote: "Measured on mobile and desktop, with the same scores on both. 100 is the maximum.",
+        scores: [
+          { label: "Performance", sub: "", value: 100 },
+          { label: "Accessibility", sub: "", value: 100 },
+          { label: "Best practices", sub: "", value: 100 },
+        ],
+        liveUrl: "https://saanjh-salon.vercel.app",
+        note: "To see the owner's side, open “View owner dashboard (demo)” in the site's footer. Demo login: demo-saanjh.",
+        image: "saanjh",
+        desktopAlt:
+          "The Saanjh Salon website on a laptop: the headline “Unhurried hair, skin & bridal care.”, a Book an appointment button and an arched photo of the salon.",
+        mobileAlt:
+          "Saanjh Salon's booking form on a phone at the date and time step: a row of dates, then the day's times, with booked times struck through.",
+      },
+    ],
   },
 
   faq: {
